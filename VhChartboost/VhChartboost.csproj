@@ -19,8 +19,8 @@
 		<Company>OmegaHood LLC</Company>
 		<Copyright>© OmegaHood LLC. All rights reserved.</Copyright>
 		<PackageIcon>VpnHood.png</PackageIcon>
-		<PackageProjectUrl>https://github.com/vpnhood/vpnhood</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/vpnhood/vpnhood</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.Chartboost</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.Chartboost</RepositoryUrl>
 		<Version>4.5.533</Version>
 		<FileVersion>$([System.DateTime]::Now.ToString("yyyy.M.d.HHmm"))</FileVersion>
 		<BaseIntermediateOutputPath />
@@ -29,6 +29,7 @@
 	<ItemGroup>
 		<None Include="..\VpnHood.png" Link="Resources\VpnHood.png">
 			<Pack>True</Pack>
+			<PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
 
