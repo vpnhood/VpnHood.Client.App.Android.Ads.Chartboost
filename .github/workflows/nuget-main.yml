@@ -32,7 +32,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
+      uses: android-actions/setup-android@v2
 
     - name: Android SDK
       run: dotnet workload install android
