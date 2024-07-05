@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Bump versions
       uses: SiqiLu/dotnet-bump-version@2.0.0
@@ -32,7 +32,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Setup Android SDK
-      uses: android-actions/setup-android@v2
+      uses: android-actions/setup-android@v3
 
     - name: Android SDK
       run: dotnet workload install android
