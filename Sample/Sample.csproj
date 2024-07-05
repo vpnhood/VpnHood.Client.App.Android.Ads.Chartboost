@@ -13,6 +13,6 @@
     <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VhChartboost\VhChartboost.csproj" />
+    <ProjectReference Include="..\VhChartboost\VpnHood.Client.App.Android.Ads.Chartboost.csproj" />
   </ItemGroup>
 </Project>
