@@ -11,7 +11,7 @@ jobs:
   
     env:
         BUILD_CONFIG: 'Release'
-        PROJECT_NAME: 'VhCharboost'
+        PROJECT_NAME: 'VhChartboost'
 
     runs-on: ubuntu-latest
 
