@@ -11,7 +11,7 @@ jobs:
   
     env:
         BUILD_CONFIG: 'Release'
-        PROJECT_NAME: 'VhChartboost'
+        PROJECT_NAME: 'VpnHood.Client.App.Android.Ads.Chartboost'
 
     runs-on: ubuntu-latest
 
