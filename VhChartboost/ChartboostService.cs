@@ -26,7 +26,18 @@ public class ChartboostService(string appId, string adSignature, string adLocati
 
     public bool IsCountrySupported(string countryCode)
     {
-        return countryCode != "IR";
+        // Make sure it is upper case
+        countryCode = countryCode.Trim().ToUpper(); 
+
+        // these countries are not supported at all
+        if (countryCode == "CN")
+            return false;
+
+        // these countries video ad is not supported
+        if (hasVideo)
+            return countryCode != "IR";
+
+		return true;
     }
 
     public async Task LoadAd(IUiContext uiContext, CancellationToken cancellationToken)
