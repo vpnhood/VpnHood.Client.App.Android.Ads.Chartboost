@@ -1,5 +1,4 @@
-﻿using Android.Content;
-using Com.Chartboost.Sdk;
+﻿using Com.Chartboost.Sdk;
 using Com.Chartboost.Sdk.Callbacks;
 using Com.Chartboost.Sdk.Events;
 using Com.Chartboost.Sdk.Privacy.Model;
@@ -13,17 +12,19 @@ public class ChartboostUtil
     private static readonly AsyncLock InitLock = new();
     public static bool IsInitialized { get; private set; }
 
-    public static async Task Initialize(Context context, string appId, string adSignature,
+    public static async Task Initialize(Activity activity, string appId, string adSignature,
         CancellationToken cancellationToken)
     {
         using var lockAsync = await InitLock.LockAsync(cancellationToken);
         if (IsInitialized)
             return;
 
-        Chartboost.AddDataUseConsent(context, new COPPA(false));
-
         var sdkStartCallback = new StartCallback();
-        Chartboost.StartWithAppId(context, appId, adSignature, sdkStartCallback);
+        activity.RunOnUiThread(() =>
+        {
+            Chartboost.AddDataUseConsent(activity, new COPPA(false));
+            Chartboost.StartWithAppId(activity, appId, adSignature, sdkStartCallback);
+        });
 
         var cancellationTask = new TaskCompletionSource();
         cancellationToken.Register(cancellationTask.SetResult);
