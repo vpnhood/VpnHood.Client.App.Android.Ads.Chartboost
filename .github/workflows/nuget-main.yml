@@ -11,7 +11,7 @@ jobs:
   
     env:
         BUILD_CONFIG: 'Release'
-        PROJECT_NAME: 'VpnHood.Client.App.Android.Ads.Chartboost'
+        PROJECT_NAME: 'VhChartboost'
 
     runs-on: ubuntu-latest
 
@@ -21,7 +21,7 @@ jobs:
     - name: Bump versions
       uses: SiqiLu/dotnet-bump-version@2.0.0
       with:
-        version_files: "**/${{ env.PROJECT_NAME }}.csproj"
+        version_files: "**/*.Chartboost.csproj"
         version_mask: 0.0.1.0
         version_overwrite: "*.*.*.*"
         github_token: ${{ secrets.GITHUB_TOKEN }}
