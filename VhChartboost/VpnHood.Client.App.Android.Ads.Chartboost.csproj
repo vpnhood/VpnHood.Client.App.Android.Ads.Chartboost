@@ -21,7 +21,7 @@
 		<PackageIcon>VpnHood.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.Chartboost</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/vpnhood/VpnHood.Client.App.Android.Ads.Chartboost</RepositoryUrl>
-		<Version>4.5.538</Version>
+		<Version>4.5.539</Version>
 		<FileVersion>$([System.DateTime]::Now.ToString("yyyy.M.d.HHmm"))</FileVersion>
 		<BaseIntermediateOutputPath />
 	</PropertyGroup>
