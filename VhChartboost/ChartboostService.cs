@@ -16,6 +16,7 @@ public class ChartboostService(string appId, string adSignature, string adLocati
     public string NetworkName => "Chartboost";
     public AppAdType AdType => AppAdType.InterstitialAd;
     public DateTime? AdLoadedTime { get; private set; }
+    public TimeSpan AdLifeSpan { get; } = TimeSpan.FromMinutes(45);
 
     public static ChartboostService Create(string appId, string adSignature, string adLocation)
     {
@@ -37,11 +38,6 @@ public class ChartboostService(string appId, string adSignature, string adLocati
 
         // initialize
         await ChartboostUtil.Initialize(activity, appId, adSignature, cancellationToken);
-        if (!ChartboostUtil.ShouldLoadAd(AdLoadedTime))
-            return;
-
-        if (_chartboostInterstitialAd is { IsCached: true })
-            return;
 
         // reset the last loaded ad
         AdLoadedTime = null;
@@ -67,14 +63,11 @@ public class ChartboostService(string appId, string adSignature, string adLocati
         if (activity.IsDestroyed)
             throw new AdException("MainActivity has been destroyed before showing the ad.");
 
-        if (AdLoadedTime == null)
-            throw new AdException($"The {AdType} has not been loaded.");
-
         try
         {
-            if (_chartboostInterstitialAd == null || _myInterstitialCallBack == null)
-                throw new AdException("InterstitialAdd does not loaded yet.");
-            
+            if (AdLoadedTime == null || _chartboostInterstitialAd == null || _myInterstitialCallBack == null)
+                throw new AdException($"The {AdType} has not been loaded.");
+
             _chartboostInterstitialAd.Show();
 
             // wait for show or dismiss
@@ -88,6 +81,7 @@ public class ChartboostService(string appId, string adSignature, string adLocati
         finally
         {
             _chartboostInterstitialAd?.ClearCache();
+            _chartboostInterstitialAd = null;
             AdLoadedTime = null;
         }
     }
