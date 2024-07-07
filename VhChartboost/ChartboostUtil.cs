@@ -20,11 +20,8 @@ public class ChartboostUtil
             return;
 
         var sdkStartCallback = new StartCallback();
-        activity.RunOnUiThread(() =>
-        {
-            Chartboost.AddDataUseConsent(activity, new COPPA(false));
-            Chartboost.StartWithAppId(activity, appId, adSignature, sdkStartCallback);
-        });
+        Chartboost.AddDataUseConsent(activity, new COPPA(false));
+        Chartboost.StartWithAppId(activity, appId, adSignature, sdkStartCallback);
 
         var cancellationTask = new TaskCompletionSource();
         cancellationToken.Register(cancellationTask.SetResult);

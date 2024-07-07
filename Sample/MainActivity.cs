@@ -19,7 +19,7 @@ public class MainActivity : ActivityEvent
     {
         try
         {
-            var adService = ChartboostService.Create("4f7b433509b6025804000002", "dd2d41b69ac01b80f443f5b6cf06096d457f82bd", "before_connect_interstitial");
+            var adService = ChartboostService.Create("4f7b433509b6025804000002", "dd2d41b69ac01b80f443f5b6cf06096d457f82bd", "before_connect_interstitial", true);
             await adService.LoadAd(new AndroidUiContext(this), new CancellationToken());
             await adService.ShowAd(new AndroidUiContext(this), "", new CancellationToken());
         }

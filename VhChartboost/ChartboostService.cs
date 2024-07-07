@@ -48,11 +48,8 @@ public class ChartboostService(string appId, string adSignature, string adLocati
 
         // Load a new Ad
         _myInterstitialCallBack = new MyInterstitialCallBack();
-        activity.RunOnUiThread(() =>
-        {
-            _chartboostInterstitialAd = new Interstitial(adLocation, _myInterstitialCallBack, null);
-            _chartboostInterstitialAd.Cache();
-        });
+        _chartboostInterstitialAd = new Interstitial(adLocation, _myInterstitialCallBack, null);
+        _chartboostInterstitialAd.Cache();
 
         var cancellationTask = new TaskCompletionSource();
         cancellationToken.Register(cancellationTask.SetResult);
