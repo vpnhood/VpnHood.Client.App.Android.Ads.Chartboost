@@ -397,3 +397,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /.idea/.idea.VpnHood.Client.App.Android.Ads.UnityAds/.idea
+/Sample/Sample.csproj
