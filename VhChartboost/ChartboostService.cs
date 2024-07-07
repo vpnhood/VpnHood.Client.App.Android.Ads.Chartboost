@@ -9,7 +9,7 @@ using Com.Chartboost.Sdk.Events;
 
 namespace VpnHood.Client.App.Droid.Ads.VhChartboost;
 
-public class ChartboostService(string appId, string adSignature, string adLocation, bool hasVideo) : IAppAdService
+public class ChartboostService(string appId, string adSignature, string adLocation) : IAppAdService
 {
     private Interstitial? _chartboostInterstitialAd;
     private MyInterstitialCallBack? _myInterstitialCallBack;
@@ -18,9 +18,9 @@ public class ChartboostService(string appId, string adSignature, string adLocati
     public DateTime? AdLoadedTime { get; private set; }
     public TimeSpan AdLifeSpan { get; } = TimeSpan.FromMinutes(45);
 
-    public static ChartboostService Create(string appId, string adSignature, string adLocation, bool hasVideo)
+    public static ChartboostService Create(string appId, string adSignature, string adLocation)
     {
-        var ret = new ChartboostService(appId, adSignature, adLocation, hasVideo);
+        var ret = new ChartboostService(appId, adSignature, adLocation);
         return ret;
     }
 
