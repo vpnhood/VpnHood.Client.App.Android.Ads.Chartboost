@@ -9,7 +9,8 @@ using Com.Chartboost.Sdk.Events;
 
 namespace VpnHood.Client.App.Droid.Ads.VhChartboost;
 
-public class ChartboostService(string appId, string adSignature, string adLocation) : IAppAdService
+public class ChartboostAdProvider(string appId, string adSignature, string adLocation) 
+    : IAppAdProvider
 {
     private Interstitial? _chartboostInterstitialAd;
     private MyInterstitialCallBack? _myInterstitialCallBack;
@@ -18,19 +19,10 @@ public class ChartboostService(string appId, string adSignature, string adLocati
     public DateTime? AdLoadedTime { get; private set; }
     public TimeSpan AdLifeSpan { get; } = TimeSpan.FromMinutes(45);
 
-    public static ChartboostService Create(string appId, string adSignature, string adLocation)
+    public static ChartboostAdProvider Create(string appId, string adSignature, string adLocation)
     {
-        var ret = new ChartboostService(appId, adSignature, adLocation);
+        var ret = new ChartboostAdProvider(appId, adSignature, adLocation);
         return ret;
-    }
-
-    public bool IsCountrySupported(string countryCode)
-    {
-        // Make sure it is upper case
-        countryCode = countryCode.Trim().ToUpper();
-
-        // these countries are not supported at all
-        return countryCode is not ("CN" or "IR");
     }
 
     public async Task LoadAd(IUiContext uiContext, CancellationToken cancellationToken)

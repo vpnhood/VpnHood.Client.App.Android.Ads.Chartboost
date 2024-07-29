@@ -34,8 +34,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.5.536" />
-	  <PackageReference Include="VpnHood.Client.Device.Android" Version="4.5.536" />
+	  <PackageReference Include="VpnHood.Client.App.Abstractions" Version="4.6.551" />
+	  <PackageReference Include="VpnHood.Client.Device.Android" Version="4.6.551" />
     <PackageReference Include="Xamarin.GooglePlayServices.Ads.Identifier" Version="118.0.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.AppSet" Version="16.0.2" />
     <PackageReference Include="Xamarin.GooglePlayServices.Auth" Version="121.1.1" />
